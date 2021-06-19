@@ -12,7 +12,7 @@ URL:                            https://www.midnight-commander.org
 Vendor:                         Package Store <https://pkgstore.github.io>
 Packager:                       Kitsune Solar <kitsune.solar@gmail.com>
 
-Source0:                        https://github.com/MidnightCommander/mc/archive/%{name}-%{version}.tar.gz
+Source0:                        https://github.com/MidnightCommander/mc/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 Patch1:                         %{name}-spec.syntax.patch
 Patch3:                         %{name}-python3.patch
@@ -145,18 +145,18 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 * Fri Jul 17 2020 Jindrich Novy <jnovy@redhat.com> - 1:4.8.25-1
 - update to 4.8.25
 
-* Fri Mar 13 2020 Package Store <pkgstore@pm.me> - 1:4.8.24-100
+* Fri Mar 13 2020 Package Store <kitsune.solar@gmail.com> - 1:4.8.24-100
 - NEW: v4.8.24.
 - UPD: master-67d688.
 
-* Tue Oct 15 2019 Package Store <pkgstore@pm.me> - 1:4.8.23-102
+* Tue Oct 15 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-102
 - UPD: Disable aspell support until it is clear how to set up aspell dependencies or avoiding annoying error message when no dictionary is found every time a file is edited.
 - UPD: Re-add BR: perl-generators, it is required for generating rpm deps from the embedded VFS perl scriptlets.
 - UPD: Just keep perl-interpreter BR because of man2hlp, it is a perl script required by build.
 - UPD: Require aspell-en, otherwise an annoying error prompt is displayed while editing any file.
 - UPD: Drop unneeded BR: perl-generators.
 
-* Thu Oct 03 2019 Package Store <pkgstore@pm.me> - 1:4.8.23-101
+* Thu Oct 03 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-101
 - ADD: Python3 patch: port to python3.
 - ADD: Python subpackage with s3+ and uc1541 extfs backend scrips to minimise base package dependencies.
 - ADD: Python3-boto to python subpackage dependencies.
@@ -167,7 +167,7 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 - SET: The Python path properly as env var, don't sed the configure directly.
 - UPD: master-5795c3.
 
-* Sat Jun 29 2019 Package Store <pkgstore@pm.me> - 1:4.8.23-100
+* Sat Jun 29 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-100
 - NEW: v4.8.23.
 - UPD: MARKETPLACE.
 
