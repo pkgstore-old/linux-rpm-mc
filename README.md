@@ -6,7 +6,27 @@ GNU Midnight Commander allows you to manage files while making most of you scree
 
 GNU Midnight Commander is released under the GNU General Public License version 3 or any later version. A copy of the file is included with this distribution package.
 
-## How it works
+## Install
+
+### Fedora COPR
+
+```
+$ dnf copr enable pkgstore/mc
+```
+
+### Open Build Service (OBS)
+
+```
+# Work in Progress
+```
+
+## Update
+
+```
+$ dnf upgrade -y mc
+```
+
+## How to Build
 
 1. Get source from [src.fedoraproject.org](https://src.fedoraproject.org/rpms/mc).
 2. Write last commit SHA from [src.fedoraproject.org](https://src.fedoraproject.org/rpms/mc) to [CHANGELOG](CHANGELOG).
