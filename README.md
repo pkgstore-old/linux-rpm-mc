@@ -12,6 +12,7 @@ GNU Midnight Commander is released under the GNU General Public License version 
 
 ```
 $ dnf copr enable pkgstore/mc
+$ dnf install -y mc
 ```
 
 ### Open Build Service (OBS)
