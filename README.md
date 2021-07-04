@@ -27,6 +27,13 @@ $ dnf install -y mc
 $ dnf upgrade -y mc
 ```
 
+## Remove
+
+```
+$ dnf erase -y mc
+$ dnf copr remove pkgstore/mc
+```
+
 ## How to Build
 
 1. Get source from [src.fedoraproject.org](https://src.fedoraproject.org/rpms/mc).
