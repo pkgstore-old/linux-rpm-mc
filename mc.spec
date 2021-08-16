@@ -3,7 +3,7 @@
 %global release_prefix          100
 
 Name:                           mc
-Version:                        4.8.26
+Version:                        4.8.27
 Release:                        %{release_prefix}%{?dist}
 Epoch:                          1
 Summary:                        User-friendly text console file manager and visual shell
@@ -123,6 +123,9 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 
 
 %changelog
+* Mon Aug 16 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.27-100
+- NEW: v4.8.27.
+
 * Sat Jun 19 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.26-100
 - UPD: Move to Package Store.
 - UPD: License.
