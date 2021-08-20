@@ -1,6 +1,6 @@
 %bcond_without slang
 
-%global release_prefix          100
+%global release_prefix          101
 
 Name:                           mc
 Version:                        4.8.27
@@ -69,6 +69,7 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 
 
 %build
+%{__sed} -i "s,PREV_MC_VERSION=\"unknown\",PREV_MC_VERSION=\"%{version}\"," version.sh
 ./autogen.sh
 %configure                                                  \
   PYTHON=%{__python3}                                       \
@@ -123,6 +124,9 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 
 
 %changelog
+* Fri Aug 20 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.27-101
+- UPD: SPEC-file.
+
 * Mon Aug 16 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.27-100
 - NEW: v4.8.27.
 
