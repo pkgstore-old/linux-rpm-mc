@@ -1,9 +1,9 @@
 %bcond_without slang
 
-%global release_prefix          101
+%global release_prefix          100
 
 Name:                           mc
-Version:                        4.8.27
+Version:                        4.8.28
 Release:                        %{release_prefix}%{?dist}
 Epoch:                          1
 Summary:                        User-friendly text console file manager and visual shell
@@ -12,7 +12,7 @@ URL:                            https://www.midnight-commander.org
 Vendor:                         Package Store <https://pkgstore.github.io>
 Packager:                       Kitsune Solar <kitsune.solar@gmail.com>
 
-Source0:                        https://github.com/MidnightCommander/mc/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:                        http://ftp.midnight-commander.org/%{name}-%{version}.tar.xz
 
 Patch1:                         %{name}-spec.syntax.patch
 Patch3:                         %{name}-python3.patch
@@ -81,8 +81,8 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
   --enable-vfs-fish                                         \
   --enable-vfs-ftp                                          \
   --enable-vfs-sfs                                          \
-	--disable-vfs-sftp                                        \
-  --enable-vfs-smb                                          \
+  --disable-vfs-sftp                                        \
+  --disable-vfs-smb                                         \
   --enable-vfs-tar                                          \
   --with-x                                                  \
   --with-gpm-mouse                                          \
@@ -124,15 +124,23 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 
 
 %changelog
-* Fri Aug 20 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.27-101
-- UPD: SPEC-file.
+* Wed Mar 30 2022 Package Store <pkgstore@mail.ru> - 1:4.8.28-100
+- NEW: MC v4.8.28.
+- UPD: Rebuild by Package Store.
 
-* Mon Aug 16 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.27-100
-- NEW: v4.8.27.
+* Thu Jan 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.27-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
-* Sat Jun 19 2021 Package Store <kitsune.solar@gmail.com> - 1:4.8.26-100
-- UPD: Move to Package Store.
-- UPD: License.
+* Fri Sep 10 2021 Jindrich Novy <jnovy@redhat.com> - 1:4.8.27-2
+- disable samba VFS
+- Related: #2002331
+
+* Mon Aug 16 2021 Jindrich Novy <jnovy@redhat.com> - 1:4.8.27-1
+- update to https://github.com/MidnightCommander/mc/releases/tag/v4.8.27
+- fix mc --version (#1858573)
+
+* Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.26-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
 * Tue Feb 02 2021 Denys Vlasenko <dvlasenk@redhat.com> - 1:4.8.26-3
 - Avoid usage of libssh2
@@ -152,35 +160,59 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 * Fri Jul 17 2020 Jindrich Novy <jnovy@redhat.com> - 1:4.8.25-1
 - update to 4.8.25
 
-* Fri Mar 13 2020 Package Store <kitsune.solar@gmail.com> - 1:4.8.24-100
-- NEW: v4.8.24.
-- UPD: master-67d688.
+* Fri Jan 31 2020 Jindrich Novy <jnovy@redhat.com> - 1:4.8.24-4
+- fix gcc-10 build failure
 
-* Tue Oct 15 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-102
-- UPD: Disable aspell support until it is clear how to set up aspell dependencies or avoiding annoying error message when no dictionary is found every time a file is edited.
-- UPD: Re-add BR: perl-generators, it is required for generating rpm deps from the embedded VFS perl scriptlets.
-- UPD: Just keep perl-interpreter BR because of man2hlp, it is a perl script required by build.
-- UPD: Require aspell-en, otherwise an annoying error prompt is displayed while editing any file.
-- UPD: Drop unneeded BR: perl-generators.
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.24-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
-* Thu Oct 03 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-101
-- ADD: Python3 patch: port to python3.
-- ADD: Python subpackage with s3+ and uc1541 extfs backend scrips to minimise base package dependencies.
-- ADD: Python3-boto to python subpackage dependencies.
-- USE: -Wno-strict-aliasing in CFLAGS is no longer needed.
-- ADD: Spec.syntax patch: improve rpm spec files syntax colouring.
-- ADD: Default_setup patch: enable by default lynx navigate with arrows keys and auto save setup.
-- FIX: Rpmlint warnings and simplify filelist.
-- SET: The Python path properly as env var, don't sed the configure directly.
-- UPD: master-5795c3.
+* Mon Jan 27 2020 Jindrich Novy <jnovy@redhat.com> - 1:4.8.24-2
+- be sure to use /var/tmp instead of /tmp (#1795006)
 
-* Sat Jun 29 2019 Package Store <kitsune.solar@gmail.com> - 1:4.8.23-100
-- NEW: v4.8.23.
-- UPD: MARKETPLACE.
+* Mon Jan 20 2020 Jindrich Novy <jnovy@redhat.com> - 1:4.8.24-1
+- update to 4.8.24
+- drop merged tmpdir patch
 
-* Thu Jan 03 2019 Kitsune Solar <kitsune.solar@gmail.com> - 1:4.8.22-1
-- NEW: v4.8.22.
-- UPD: MARKETPLACE.
+* Wed Oct 09 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-7
+- disable aspell support until it is clear how to set up
+  aspell dependencies or avoiding annoying error message
+  when no dictionary is found every time a file is edited
+
+* Mon Oct 07 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-6
+- re-add BR: perl-generators, it is required for generating
+  rpm deps from the embedded VFS perl scriptlets
+
+* Mon Oct 07 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-5
+- just keep perl-interpreter BR because of man2hlp,
+  it is a perl script required by build
+- require aspell-en, otherwise an annoying error prompt
+  is displayed while editing any file
+
+* Mon Oct 07 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-4
+- drop unneeded BR: perl-generators
+
+* Sat Sep 28 2019 Tomasz Kłoczko <kloczek@fedoraproject.org> - 1:4.8.23-3
+- add python3 patch: port to python3
+- added python subpackage with s3+ and uc1541 extfs backend scrips to minimise
+  base package dependencies
+- added python3-boto to python subpackage dependencies
+- use -Wno-strict-aliasing in CFLAGS is no longer needed
+- added spec.syntax patch: improve rpm spec files syntax colouring
+- added default_setup patch: enable by default lynx navigate with arrows keys
+  and auto save setup
+
+* Tue Sep 24 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-2
+- fix rpmlint warnings and simplify filelist
+
+* Thu Aug 22 2019 Jindrich Novy <jnovy@redhat.com> - 1:4.8.23-1
+- update to 4.8.23
+- set the Python path properly as env var, don't sed the configure directly
+
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.21-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.21-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
 * Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.8.21-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
