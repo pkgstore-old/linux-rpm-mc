@@ -12,7 +12,7 @@ URL:                            https://www.midnight-commander.org
 Vendor:                         Package Store <https://pkgstore.github.io>
 Packager:                       Kitsune Solar <kitsune.solar@gmail.com>
 
-Source0:                        http://ftp.midnight-commander.org/%{name}-%{version}.tar.xz
+Source0:                        https://github.com/MidnightCommander/mc/archive/%{version}.tar.gz
 
 Patch1:                         %{name}-spec.syntax.patch
 Patch3:                         %{name}-python3.patch
