@@ -1,6 +1,6 @@
 %bcond_without slang
 
-%global release_prefix          100
+%global release_prefix          1000
 
 Name:                           mc
 Version:                        4.8.28
@@ -9,10 +9,8 @@ Epoch:                          1
 Summary:                        User-friendly text console file manager and visual shell
 License:                        GPLv3+
 URL:                            https://www.midnight-commander.org
-Vendor:                         Package Store <https://pkgstore.github.io>
-Packager:                       Kitsune Solar <kitsune.solar@gmail.com>
 
-Source0:                        https://github.com/MidnightCommander/mc/archive/%{version}.tar.gz
+Source0:                        %{name}-%{version}.tar.xz
 
 Patch1:                         %{name}-spec.syntax.patch
 Patch3:                         %{name}-python3.patch
@@ -124,6 +122,10 @@ Midnight Commander s3+ and UC1541 EXTFS backend scripts.
 
 
 %changelog
+* Thu Mar 31 2022 Package Store <pkgstore@mail.ru> - 1:4.8.28-1000
+- UPD: Rebuild by Package Store.
+- UPD: File "mc.spec".
+
 * Wed Mar 30 2022 Package Store <pkgstore@mail.ru> - 1:4.8.28-100
 - NEW: MC v4.8.28.
 - UPD: Rebuild by Package Store.
